@@ -1,20 +1,19 @@
-<div class="container">
-  <h1>All our flats</h1>
-   <% @flats.each do |flat| %>
-  <div class="card-trip">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-    <div class="card-trip-infos">
-      <div>
-        <h2><%= flat.name %></h2>
-        <p><%= flat.description %>. <strong>For <%= flat.number_of_guests %> guests</strong></p>
+  <h1>All our flats (<%= @flats.count %>)</h1>
+  <div class="d-flex justify-content-around align-items-center">
+
+
+
+  <% @flats.each do |flat| %>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><%= flat.name %></h5>
+        <p class="card-text"><small><%= flat.address %></small></p>
+        <p class="card-text"><%= flat.number_of_guests %> guests £<%= flat.price_per_night %></p>
       </div>
+      <div class="card-footer">
 
-
-
-      <h2 class="card-trip-pricing">£<%= flat.price_per_night %></h2>
-      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+        <%= link_to "More info", flat_path(flat) %>
+      </div>
     </div>
   <% end %>
-  </div>
-
 </div>
